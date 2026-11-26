@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width", intial-scale=1.0" />
+    <title>Medchcek - openFDA Drug Safety Explorer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body> 
+    <header class="topbar">
+        <div>
+            <h1>Medcheck</h1>
+            <p class="tagline">Search openFDA adverse event reports and filter or sort drug reactions</p>
+        </div>
+        <span id="server-node" class="node-pill">Local</span>
+    </header>
+
+    <main class="wrap">
+        <section class="panel" aria-label="Search, filter, and sort medications">
+            <form id="search-form" class="search-bar">
+                <label for="med-input" class="sr-only">Medication or ingredient name</label>
+                <input
+                    id="med-input"
+                    type="text"
+                    placeholder="Enter a medication (e.g., ibuprofen, metformin, amoxicilin)..."
+                    autocomplete="off"
+                    required
+                    />
+                    <button type="submit" id="search-btn">Search FDA</button>
+            </form>
+
+
+            <div class="controls-row">
+               <div class="control">
+                <label for="serious-filter">Severity</label>
+                <select id="serious-filter">
+                    <option value="all">All Reports</option>
+                    <option value="serious">Serious Only</option>
+                    <option value="non-serious">Non-serious Only</option> 
+                </select>
+               </div>
+
+               <div class="control">
+                <label for="sort-select">Sort By</label>
+                <select id="sort-select">
+                    <option value="default">Default Order</option>
+                    <option value="reactions-desc">Most Reactions</option>
+                    <option value="name-asc">Drug Name (A-Z)</option>
+                </select>
+               </div>
+
+               <button type="button" id="reset-btn" class="ghost-btn">Clear</button>
+               </div>
+            </section>
+
+            <div id="status-banner" class="status-banner hidden" role="status" aria-live="polite"></div>
+
+            <section id="results-grid" class="results-grid" aria-live="polite"></section>
+           </main>
+           
+           <footer class="footer">
+            <p>
+                Powered by <a href="https://open.fda.gov/apis/drug/event/" target="_blank" rel="noopener noreferrer">openFDA Drug Adverse Event API</a>. 
+                For educational and informational reference only - not medical advice.
+            </p>
+           </footer>
+
+           <script src="config.js"></script>
+           <script src="app.js"></script>
+        </body>
+        </html>

@@ -1,0 +1,3 @@
+const APP_CONFIG = {
+  FDA_API_KEY: "6NFLnPzDj8pnr9MDRz6H6DGDLGFjFrMfmdHPzhqG"
+};
